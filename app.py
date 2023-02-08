@@ -104,7 +104,7 @@ if __name__ == '__main__':
                             gr.Markdown(
                                 '<div align="center">'
                                 f'<a><strong>{title}</strong></a>'
-                                f'<img width="300px" src="file/{cover}">' if cover else ""
+                                f'<img style="width:auto;height:300px;" src="file/{cover}">' if cover else ""
                                 '</div>'
                             )
                         with gr.Row():
@@ -131,7 +131,7 @@ if __name__ == '__main__':
                             gr.Markdown(
                                 '<div align="center">'
                                 f'<a><strong>{title}</strong></a>'
-                                f'<img src="file/{cover}">' if cover else ""
+                                f'<img style="width:auto;height:300px;" src="file/{cover}">' if cover else ""
                                 '</div>'
                             )
                         with gr.Row():
