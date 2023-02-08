@@ -13,6 +13,13 @@
         "cover": "cover.png",
 		"sid": 10
     },
+	"hoshino": {
+		"name_en": "Takanasi Hosino",
+		"name_zh": "小鸟游星野",
+        "title": "Blue Archive-小鳥遊 ホシノ",
+        "cover": "cover.png",
+		"sid": 10
+    },
 	"hina": {
 		"name_en": "Sorasaki Hina",
 		"name_zh": "空崎日奈",
