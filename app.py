@@ -105,6 +105,9 @@ if __name__ == '__main__':
         gr.Markdown(
             "# <center> vits-models\n"
             "![visitor badge](https://visitor-badge.glitch.me/badge?page_id=sayashi.vits-models)\n\n"
+            "[Open In Colab]"
+            "(https://colab.research.google.com/drive/10QOk9NPgoKZUXkIhhuVaZ7SYra1MPMKH?usp=share_link)"
+            " without queue and length limitation.\n\n"
         )
 
         with gr.Tabs():
@@ -162,4 +165,4 @@ if __name__ == '__main__':
                             btn.click(tts_fn, inputs=[input_text, lang,  ns, nsw, ls], outputs=[o1, o2])
                             download.click(None, [], [], _js=download_audio_js.format())
                             lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls])
-    app.queue(concurrency_count=1).launch()
+    app.queue(concurrency_count=1).launch(show_api=False, share=args.share)
