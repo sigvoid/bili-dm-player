@@ -1,15 +1,19 @@
 # coding=utf-8
 import os
 import re
+import argparse
 import utils
 import commons
 import json
+import torch
 import gradio as gr
 from models import SynthesizerTrn
 from text import text_to_sequence
 from torch import no_grad, LongTensor
 import logging
 logging.getLogger('numba').setLevel(logging.WARNING)
+limitation = os.getenv("SYSTEM") == "spaces"  # limit text and audio length in huggingface spaces
+
 hps_ms = utils.get_hparams_from_file(r'config/config.json')
 
 def get_text(text, hps):
@@ -22,10 +26,11 @@ def get_text(text, hps):
 def create_tts_fn(net_g_ms, speaker_id):
     def tts_fn(text, language, noise_scale, noise_scale_w, length_scale):
         text = text.replace('\n', ' ').replace('\r', '').replace(" ", "")
-        text_len = len(re.sub("\[([A-Z]{2})\]", "", text))
-        max_len = 150
-        if text_len > max_len:
-            return "Error: Text is too long", None
+        if limitation:
+            text_len = len(re.sub("\[([A-Z]{2})\]", "", text))
+            max_len = 100
+            if text_len > max_len:
+                return "Error: Text is too long", None
         if language == 0:
             text = f"[ZH]{text}[ZH]"
         elif language == 1:
@@ -34,11 +39,11 @@ def create_tts_fn(net_g_ms, speaker_id):
             text = f"{text}"
         stn_tst, clean_text = get_text(text, hps_ms)
         with no_grad():
-            x_tst = stn_tst.unsqueeze(0)
-            x_tst_lengths = LongTensor([stn_tst.size(0)])
-            sid = LongTensor([speaker_id])
+            x_tst = stn_tst.unsqueeze(0).to(device)
+            x_tst_lengths = LongTensor([stn_tst.size(0)]).to(device)
+            sid = LongTensor([speaker_id]).to(device)
             audio = net_g_ms.infer(x_tst, x_tst_lengths, sid=sid, noise_scale=noise_scale, noise_scale_w=noise_scale_w,
-                                   length_scale=length_scale)[0][0, 0].data.float().numpy()
+                                   length_scale=length_scale)[0][0, 0].data.cpu().float().numpy()
 
         return "Success", (22050, audio)
     return tts_fn
@@ -72,23 +77,29 @@ download_audio_js = """
 """
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--device', type=str, default='cpu')
+    parser.add_argument("--share", action="store_true", default=False, help="share gradio app")
+    args = parser.parse_args()
+    device = torch.device(args.device)
+    
     models = []
     with open("pretrained_models/info.json", "r", encoding="utf-8") as f:
         models_info = json.load(f)
     for i, info in models_info.items():
+        sid = info['sid']
+        name_en = info['name_en']
+        name_zh = info['name_zh']
+        title = info['title']
+        cover = f"pretrained_models/{i}/{info['cover']}"
         net_g_ms = SynthesizerTrn(
             len(hps_ms.symbols),
             hps_ms.data.filter_length // 2 + 1,
             hps_ms.train.segment_size // hps_ms.data.hop_length,
             n_speakers=hps_ms.data.n_speakers,
             **hps_ms.model)
-        _ = net_g_ms.eval()
-        sid = info['sid']
-        name_en = info['name_en']
-        name_zh = info['name_zh']
-        title = info['title']
-        cover = f"pretrained_models/{i}/{info['cover']}"
         utils.load_checkpoint(f'pretrained_models/{i}/{i}.pth', net_g_ms, None)
+        _ = net_g_ms.eval().to(device)
         models.append((sid, name_en, name_zh, title, cover, net_g_ms, create_tts_fn(net_g_ms, sid)))
     with gr.Blocks() as app:
         gr.Markdown(
