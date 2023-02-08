@@ -93,9 +93,7 @@ if __name__ == '__main__':
     with gr.Blocks() as app:
         gr.Markdown(
             "# <center> vits-models\n"
-            "<div align='center'>主要有赛马娘，原神中文，原神日语，崩坏3的音色</div>"
-            '<div align="center"><a><font color="#dd0000">结果有随机性，语调可能很奇怪，可多次生成取最佳效果</font></a></div>'
-            '<div align="center"><a><font color="#dd0000">标点符号会影响生成的结果</font></a></div>'
+            "![visitor badge](https://visitor-badge.glitch.me/badge?page_id=sayashi.vits-models)\n\n"
         )
 
         with gr.Tabs():
@@ -106,7 +104,7 @@ if __name__ == '__main__':
                             gr.Markdown(
                                 '<div align="center">'
                                 f'<a><strong>{title}</strong></a>'
-                                f'<img src="file/{cover}">' if cover else ""
+                                f'<img width="300px" src="file/{cover}">' if cover else ""
                                 '</div>'
                             )
                         with gr.Row():
