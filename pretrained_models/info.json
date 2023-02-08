@@ -1,0 +1,72 @@
+{
+	"azusa": {
+		"name_en": "Shirasu Azusa",
+		"name_zh": "白洲梓",
+        "title": "Blue Archive-白洲アズサ",
+        "cover": "cover.png",
+		"sid": 10
+    },
+	"alice": {
+		"name_en": "Tendou Alice",
+		"name_zh": "天童爱丽丝",
+        "title": "Blue Archive-天童アリス",
+        "cover": "cover.png",
+		"sid": 10
+    },
+	"hina": {
+		"name_en": "Sorasaki Hina",
+		"name_zh": "空崎日奈",
+        "title": "Blue Archive-空崎 ヒナ",
+        "cover": "cover.png",
+		"sid": 10
+    },
+	"iori": {
+		"name_en": "Shiromi Iori",
+		"name_zh": "银镜伊织",
+        "title": "Blue Archive-銀鏡イオリ",
+        "cover": "cover.png",
+		"sid": 10
+    },
+	"izuna": {
+		"name_en": "Kuda Izuna",
+		"name_zh": "久田泉奈",
+        "title": "Blue Archive-久田イズナ",
+        "cover": "cover.png",
+		"sid": 10
+    },
+	"yuuka": {
+		"name_en": "Hayase Yuuka",
+		"name_zh": "早濑优香",
+        "title": "Blue Archive-早瀬ユウカ",
+        "cover": "cover.png",
+		"sid": 40
+    },
+	"doom": {
+		"name_en": "Doomfist",
+		"name_zh": "末日铁拳",
+        "title": "Overwatch 2-Doomfist",
+        "cover": "cover.png",
+		"sid": 93
+    },
+	"echo": {
+		"name_en": "Echo",
+		"name_zh": "回声",
+        "title": "Overwatch 2-Echo",
+        "cover": "cover.png",
+		"sid": 93
+    },
+	"zenyatta": {
+		"name_en": "Zenyatta",
+		"name_zh": "禅雅塔",
+        "title": "Overwatch 2-Zenyatta",
+        "cover": "cover.png",
+		"sid": 93
+    },
+	"abyssinvoker": {
+		"name_en": "Abyss Invoker",
+		"name_zh": "深渊使徒",
+        "title": "原神-深渊使徒",
+        "cover": "cover.png",
+		"sid": 94
+    }
+}
