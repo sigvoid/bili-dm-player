@@ -17,6 +17,15 @@
 		"example": "今日はいい天気ですね。",
 		"language": "Japanese"
     },
+	"shiroko": {
+		"name_en": "Sunaookami Shiroko",
+		"name_zh": "砂狼白子",
+        "title": "Blue Archive-砂狼シロコ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
+    },
 	"hoshino": {
 		"name_en": "Takanasi Hosino",
 		"name_zh": "小鸟游星野",
