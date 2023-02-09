@@ -4,83 +4,107 @@
 		"name_zh": "白洲梓",
         "title": "Blue Archive-白洲アズサ",
         "cover": "cover.png",
-		"sid": 10
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
     },
 	"alice": {
 		"name_en": "Tendou Alice",
 		"name_zh": "天童爱丽丝",
         "title": "Blue Archive-天童アリス",
         "cover": "cover.png",
-		"sid": 10
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
     },
 	"hoshino": {
 		"name_en": "Takanasi Hosino",
 		"name_zh": "小鸟游星野",
         "title": "Blue Archive-小鳥遊 ホシノ",
         "cover": "cover.png",
-		"sid": 10
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
     },
 	"hina": {
 		"name_en": "Sorasaki Hina",
 		"name_zh": "空崎日奈",
         "title": "Blue Archive-空崎 ヒナ",
         "cover": "cover.png",
-		"sid": 10
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
     },
 	"iori": {
 		"name_en": "Shiromi Iori",
 		"name_zh": "银镜伊织",
         "title": "Blue Archive-銀鏡イオリ",
         "cover": "cover.png",
-		"sid": 10
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
     },
 	"izuna": {
 		"name_en": "Kuda Izuna",
 		"name_zh": "久田泉奈",
         "title": "Blue Archive-久田イズナ",
         "cover": "cover.png",
-		"sid": 10
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
     },
 	"yuuka": {
 		"name_en": "Hayase Yuuka",
 		"name_zh": "早濑优香",
         "title": "Blue Archive-早瀬ユウカ",
         "cover": "cover.png",
-		"sid": 40
+		"sid": 40,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
     },
 	"doom": {
 		"name_en": "Doomfist",
 		"name_zh": "末日铁拳",
         "title": "Overwatch 2-Doomfist",
         "cover": "cover.png",
-		"sid": 93
+		"sid": 93,
+		"example": "无需等待队列，并且没有长度限制",
+		"language": "Chinese"
     },
 	"echo": {
 		"name_en": "Echo",
 		"name_zh": "回声",
         "title": "Overwatch 2-Echo",
         "cover": "cover.png",
-		"sid": 93
+		"sid": 93,
+		"example": "正在复制，派蒙",
+		"language": "Chinese"
     },
 	"zenyatta": {
 		"name_en": "Zenyatta",
 		"name_zh": "禅雅塔",
         "title": "Overwatch 2-Zenyatta",
         "cover": "cover.png",
-		"sid": 93
+		"sid": 93,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese"
     },
 	"abyssinvoker": {
 		"name_en": "Abyss Invoker",
 		"name_zh": "深渊使徒",
         "title": "原神-深渊使徒",
         "cover": "cover.png",
-		"sid": 94
+		"sid": 94,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese"
     },
 	"keqing": {
 		"name_en": "Keqing",
 		"name_zh": "刻晴",
         "title": "原神-刻晴",
         "cover": "cover.png",
-		"sid": 115
+		"sid": 115,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese"
     }
 }

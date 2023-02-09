@@ -10,11 +10,23 @@ import gradio as gr
 from models import SynthesizerTrn
 from text import text_to_sequence
 from torch import no_grad, LongTensor
+import gradio.processing_utils as gr_processing_utils
 import logging
 logging.getLogger('numba').setLevel(logging.WARNING)
 limitation = os.getenv("SYSTEM") == "spaces"  # limit text and audio length in huggingface spaces
 
 hps_ms = utils.get_hparams_from_file(r'config/config.json')
+
+audio_postprocess_ori = gr.Audio.postprocess
+
+def audio_postprocess(self, y):
+    data = audio_postprocess_ori(self, y)
+    if data is None:
+        return None
+    return gr_processing_utils.encode_url_or_file_to_base64(data["name"])
+
+
+gr.Audio.postprocess = audio_postprocess
 
 def get_text(text, hps):
     text_norm, clean_text = text_to_sequence(text, hps.symbols, hps.data.text_cleaners)
@@ -92,6 +104,8 @@ if __name__ == '__main__':
         name_zh = info['name_zh']
         title = info['title']
         cover = f"pretrained_models/{i}/{info['cover']}"
+        example = info['example']
+        language = info['language']
         net_g_ms = SynthesizerTrn(
             len(hps_ms.symbols),
             hps_ms.data.filter_length // 2 + 1,
@@ -100,19 +114,19 @@ if __name__ == '__main__':
             **hps_ms.model)
         utils.load_checkpoint(f'pretrained_models/{i}/{i}.pth', net_g_ms, None)
         _ = net_g_ms.eval().to(device)
-        models.append((sid, name_en, name_zh, title, cover, net_g_ms, create_tts_fn(net_g_ms, sid)))
+        models.append((sid, name_en, name_zh, title, cover, example, language, net_g_ms, create_tts_fn(net_g_ms, sid)))
     with gr.Blocks() as app:
         gr.Markdown(
             "# <center> vits-models\n"
             "![visitor badge](https://visitor-badge.glitch.me/badge?page_id=sayashi.vits-models)\n\n"
             "[Open In Colab]"
             "(https://colab.research.google.com/drive/10QOk9NPgoKZUXkIhhuVaZ7SYra1MPMKH?usp=share_link)"
-            " without queue and length limitation.\n\n"
+            " without queue and length limitation.(无需等待队列，并且没有长度限制)\n\n"
         )
 
         with gr.Tabs():
             with gr.TabItem("EN"):
-                for (sid, name_en, name_zh, title, cover, net_g_ms, tts_fn) in models:
+                for (sid, name_en, name_zh, title, cover, example, language, net_g_ms, tts_fn) in models:
                     with gr.TabItem(name_en):
                         with gr.Row():
                             gr.Markdown(
@@ -123,9 +137,9 @@ if __name__ == '__main__':
                             )
                         with gr.Row():
                             with gr.Column():
-                                input_text = gr.Textbox(label="Text (100 words limitation)", lines=5, value="先生。今日も全力であなたをアシストしますね。", elem_id=f"input-text-en-{name_en.replace(' ','')}")
+                                input_text = gr.Textbox(label="Text (100 words limitation)", lines=5, value=example, elem_id=f"input-text-en-{name_en.replace(' ','')}")
                                 lang = gr.Dropdown(label="Language", choices=["Chinese", "Japanese", "Mix（wrap the Chinese text with [ZH][ZH], wrap the Japanese text with [JA][JA]）"],
-                                            type="index", value="Japanese")
+                                            type="index", value=language)
                                 btn = gr.Button(value="Generate")
                                 with gr.Row():
                                     ns = gr.Slider(label="noise_scale", minimum=0.1, maximum=1.0, step=0.1, value=0.6, interactive=True)
@@ -139,7 +153,7 @@ if __name__ == '__main__':
                             download.click(None, [], [], _js=download_audio_js.format(audio_id=f"en-{name_en.replace(' ','')}"))
                             lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls])
             with gr.TabItem("中文"):
-                for (sid, name_en, name_zh, title, cover, net_g_ms, tts_fn) in models:
+                for (sid, name_en, name_zh, title, cover, example, language,  net_g_ms, tts_fn) in models:
                     with gr.TabItem(name_zh):
                         with gr.Row():
                             gr.Markdown(
@@ -150,9 +164,9 @@ if __name__ == '__main__':
                             )
                         with gr.Row():
                             with gr.Column():
-                                input_text = gr.Textbox(label="文本 (100字上限)", lines=5, value="先生。今日も全力であなたをアシストしますね。", elem_id=f"input-text-zh-{name_zh}")
+                                input_text = gr.Textbox(label="文本 (100字上限)", lines=5, value=example, elem_id=f"input-text-zh-{name_zh}")
                                 lang = gr.Dropdown(label="语言", choices=["中文", "日语", "中日混合（中文用[ZH][ZH]包裹起来，日文用[JA][JA]包裹起来）"],
-                                            type="index", value="日语")
+                                            type="index", value="中文"if language == "Chinese" else "日语")
                                 btn = gr.Button(value="生成")
                                 with gr.Row():
                                     ns = gr.Slider(label="控制感情变化程度", minimum=0.1, maximum=1.0, step=0.1, value=0.6, interactive=True)
