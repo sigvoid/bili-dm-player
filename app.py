@@ -59,8 +59,8 @@ download_audio_js = """
     let root = document.querySelector("body > gradio-app");
     if (root.shadowRoot != null)
         root = root.shadowRoot;
-    let audio = root.querySelector("#tts-audio").querySelector("audio");
-    let text = root.querySelector("#input-text").querySelector("textarea");
+    let audio = root.querySelector("#tts-audio-{audio_id}").querySelector("audio");
+    let text = root.querySelector("#input-text-{audio_id}").querySelector("textarea");
     if (audio == undefined)
         return;
     text = text.value;
@@ -123,7 +123,7 @@ if __name__ == '__main__':
                             )
                         with gr.Row():
                             with gr.Column():
-                                input_text = gr.Textbox(label="Text (100 words limitation)", lines=5, value="先生。今日も全力であなたをアシストしますね。", elem_id=f"input-text")
+                                input_text = gr.Textbox(label="Text (100 words limitation)", lines=5, value="先生。今日も全力であなたをアシストしますね。", elem_id=f"input-text-en-{name_en.replace(' ','')}")
                                 lang = gr.Dropdown(label="Language", choices=["Chinese", "Japanese", "Mix（wrap the Chinese text with [ZH][ZH], wrap the Japanese text with [JA][JA]）"],
                                             type="index", value="Japanese")
                                 btn = gr.Button(value="Generate")
@@ -133,10 +133,10 @@ if __name__ == '__main__':
                                     ls = gr.Slider(label="length_scale", minimum=0.1, maximum=2.0, step=0.1, value=1, interactive=True)
                             with gr.Column():
                                 o1 = gr.Textbox(label="Output Message")
-                                o2 = gr.Audio(label="Output Audio", elem_id=f"tts-audio")
+                                o2 = gr.Audio(label="Output Audio", elem_id=f"tts-audio-en-{name_en.replace(' ','')}")
                                 download = gr.Button("Download Audio")
                             btn.click(tts_fn, inputs=[input_text, lang,  ns, nsw, ls], outputs=[o1, o2])
-                            download.click(None, [], [], _js=download_audio_js.format())
+                            download.click(None, [], [], _js=download_audio_js.format(audio_id=f"en-{name_en.replace(' ','')}"))
                             lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls])
             with gr.TabItem("中文"):
                 for (sid, name_en, name_zh, title, cover, net_g_ms, tts_fn) in models:
@@ -150,7 +150,7 @@ if __name__ == '__main__':
                             )
                         with gr.Row():
                             with gr.Column():
-                                input_text = gr.Textbox(label="文本 (100字上限)", lines=5, value="先生。今日も全力であなたをアシストしますね。", elem_id=f"input-text")
+                                input_text = gr.Textbox(label="文本 (100字上限)", lines=5, value="先生。今日も全力であなたをアシストしますね。", elem_id=f"input-text-zh-{name_zh}")
                                 lang = gr.Dropdown(label="语言", choices=["中文", "日语", "中日混合（中文用[ZH][ZH]包裹起来，日文用[JA][JA]包裹起来）"],
                                             type="index", value="日语")
                                 btn = gr.Button(value="生成")
@@ -160,9 +160,9 @@ if __name__ == '__main__':
                                     ls = gr.Slider(label="控制整体语速", minimum=0.1, maximum=2.0, step=0.1, value=1, interactive=True)
                             with gr.Column():
                                 o1 = gr.Textbox(label="输出信息")
-                                o2 = gr.Audio(label="输出音频", elem_id=f"tts-audio")
+                                o2 = gr.Audio(label="输出音频", elem_id=f"tts-audio-zh-{name_zh}")
                                 download = gr.Button("下载音频")
                             btn.click(tts_fn, inputs=[input_text, lang,  ns, nsw, ls], outputs=[o1, o2])
-                            download.click(None, [], [], _js=download_audio_js.format())
+                            download.click(None, [], [], _js=download_audio_js.format(audio_id=f"zh-{name_zh}"))
                             lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls])
     app.queue(concurrency_count=1).launch(show_api=False, share=args.share)
