@@ -75,5 +75,12 @@
         "title": "原神-深渊使徒",
         "cover": "cover.png",
 		"sid": 94
+    },
+	"keqing": {
+		"name_en": "Keqing",
+		"name_zh": "刻晴",
+        "title": "原神-刻晴",
+        "cover": "cover.png",
+		"sid": 115
     }
 }
