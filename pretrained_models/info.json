@@ -1,4 +1,13 @@
 {
+	"miyu": {
+		"name_en": "Kasumizawa Miyu",
+		"name_zh": "霞泽美游",
+        "title": "Blue Archive-霞沢ミユ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
+    },
 	"azusa": {
 		"name_en": "Shirasu Azusa",
 		"name_zh": "白洲梓",
