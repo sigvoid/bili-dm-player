@@ -144,7 +144,7 @@ if __name__ == '__main__':
                                 with gr.Row():
                                     ns = gr.Slider(label="noise_scale", minimum=0.1, maximum=1.0, step=0.1, value=0.6, interactive=True)
                                     nsw = gr.Slider(label="noise_scale_w", minimum=0.1, maximum=1.0, step=0.1, value=0.668, interactive=True)
-                                    ls = gr.Slider(label="length_scale", minimum=0.1, maximum=2.0, step=0.1, value=1, interactive=True)
+                                    ls = gr.Slider(label="length_scale", minimum=0.1, maximum=2.0, step=0.1, value=1.2 if language=="Chinese" else 1, interactive=True)
                             with gr.Column():
                                 o1 = gr.Textbox(label="Output Message")
                                 o2 = gr.Audio(label="Output Audio", elem_id=f"tts-audio-en-{name_en.replace(' ','')}")
@@ -171,7 +171,7 @@ if __name__ == '__main__':
                                 with gr.Row():
                                     ns = gr.Slider(label="控制感情变化程度", minimum=0.1, maximum=1.0, step=0.1, value=0.6, interactive=True)
                                     nsw = gr.Slider(label="控制音素发音长度", minimum=0.1, maximum=1.0, step=0.1, value=0.668, interactive=True)
-                                    ls = gr.Slider(label="控制整体语速", minimum=0.1, maximum=2.0, step=0.1, value=1, interactive=True)
+                                    ls = gr.Slider(label="控制整体语速", minimum=0.1, maximum=2.0, step=0.1, value=1.2 if language=="Chinese" else 1, interactive=True)
                             with gr.Column():
                                 o1 = gr.Textbox(label="输出信息")
                                 o2 = gr.Audio(label="输出音频", elem_id=f"tts-audio-zh-{name_zh}")
