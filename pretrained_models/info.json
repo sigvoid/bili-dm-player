@@ -8,6 +8,15 @@
 		"example": "今日はいい天気ですね。",
 		"language": "Japanese"
     },
+	"karin": {
+		"name_en": "Kakudate Karin",
+		"name_zh": "角楯花凛",
+        "title": "Blue Archive-角楯カリン",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
+    },
 	"azusa": {
 		"name_en": "Shirasu Azusa",
 		"name_zh": "白洲梓",
