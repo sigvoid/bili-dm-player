@@ -17,6 +17,15 @@
 		"example": "今日はいい天気ですね。",
 		"language": "Japanese"
     },
+	"asuna": {
+		"name_en": "Ichinose Asuna",
+		"name_zh": "一之濑明日奈",
+        "title": "Blue Archive-一之瀬アスナ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
+    },
 	"azusa": {
 		"name_en": "Shirasu Azusa",
 		"name_zh": "白洲梓",
