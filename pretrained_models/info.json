@@ -1,4 +1,13 @@
 {
+	"mika": {
+		"name_en": "Misono Mika",
+		"name_zh": "圣园未花",
+        "title": "Blue Archive-聖園ミカ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese"
+    },
 	"miyu": {
 		"name_en": "Kasumizawa Miyu",
 		"name_zh": "霞泽美游",
