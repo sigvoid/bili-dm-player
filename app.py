@@ -122,6 +122,7 @@ if __name__ == '__main__':
             "[Open In Colab]"
             "(https://colab.research.google.com/drive/10QOk9NPgoKZUXkIhhuVaZ7SYra1MPMKH?usp=share_link)"
             " without queue and length limitation.(无需等待队列，并且没有长度限制)\n\n"
+            "[Finetune your own model](https://github.com/SayaSS/vits-finetuning)"
         )
 
         with gr.Tabs():
