@@ -151,5 +151,14 @@
 		"sid": 115,
 		"example": "今天晚上吃啥好呢",
 		"language": "Chinese"
+    },
+	"bronya": {
+		"name_en": "Herrscher of Reason",
+		"name_zh": "理之律者",
+        "title": "崩坏3-理之律者",
+        "cover": "cover.png",
+		"sid": 193,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese"
     }
 }
