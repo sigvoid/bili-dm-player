@@ -1,4 +1,24 @@
 {
+	"chisato": {
+		"name_en": "Nishikigi Chisato",
+		"name_zh": "锦木千束",
+        "title": "Lycoris Recoil-錦木千束",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"iroha": {
+		"name_en": "Natsume Iroha",
+		"name_zh": "枣伊吕波",
+        "title": "Blue Archive-棗イロハ,",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
 	"mika": {
 		"name_en": "Misono Mika",
 		"name_zh": "圣园未花",
@@ -6,7 +26,8 @@
         "cover": "cover.png",
 		"sid": 10,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"miyu": {
 		"name_en": "Kasumizawa Miyu",
@@ -15,7 +36,8 @@
         "cover": "cover.png",
 		"sid": 10,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"karin": {
 		"name_en": "Kakudate Karin",
@@ -24,7 +46,8 @@
         "cover": "cover.png",
 		"sid": 10,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"asuna": {
 		"name_en": "Ichinose Asuna",
@@ -33,7 +56,8 @@
         "cover": "cover.png",
 		"sid": 10,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"azusa": {
 		"name_en": "Shirasu Azusa",
@@ -42,7 +66,8 @@
         "cover": "cover.png",
 		"sid": 10,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"alice": {
 		"name_en": "Tendou Alice",
@@ -51,7 +76,8 @@
         "cover": "cover.png",
 		"sid": 10,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"shiroko": {
 		"name_en": "Sunaookami Shiroko",
@@ -60,7 +86,8 @@
         "cover": "cover.png",
 		"sid": 10,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"hoshino": {
 		"name_en": "Takanasi Hosino",
@@ -69,7 +96,8 @@
         "cover": "cover.png",
 		"sid": 10,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"hina": {
 		"name_en": "Sorasaki Hina",
@@ -78,7 +106,8 @@
         "cover": "cover.png",
 		"sid": 10,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"iori": {
 		"name_en": "Shiromi Iori",
@@ -87,7 +116,8 @@
         "cover": "cover.png",
 		"sid": 10,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"izuna": {
 		"name_en": "Kuda Izuna",
@@ -96,7 +126,8 @@
         "cover": "cover.png",
 		"sid": 10,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"yuuka": {
 		"name_en": "Hayase Yuuka",
@@ -105,7 +136,8 @@
         "cover": "cover.png",
 		"sid": 40,
 		"example": "今日はいい天気ですね。",
-		"language": "Japanese"
+		"language": "Japanese",
+		"type": "multi"
     },
 	"doom": {
 		"name_en": "Doomfist",
@@ -114,7 +146,8 @@
         "cover": "cover.png",
 		"sid": 93,
 		"example": "无需等待队列，并且没有长度限制",
-		"language": "Chinese"
+		"language": "Chinese",
+		"type": "multi"
     },
 	"echo": {
 		"name_en": "Echo",
@@ -123,7 +156,8 @@
         "cover": "cover.png",
 		"sid": 93,
 		"example": "正在复制，派蒙",
-		"language": "Chinese"
+		"language": "Chinese",
+		"type": "multi"
     },
 	"zenyatta": {
 		"name_en": "Zenyatta",
@@ -132,7 +166,8 @@
         "cover": "cover.png",
 		"sid": 93,
 		"example": "今天晚上吃啥好呢",
-		"language": "Chinese"
+		"language": "Chinese",
+		"type": "multi"
     },
 	"abyssinvoker": {
 		"name_en": "Abyss Invoker",
@@ -141,7 +176,8 @@
         "cover": "cover.png",
 		"sid": 94,
 		"example": "今天晚上吃啥好呢",
-		"language": "Chinese"
+		"language": "Chinese",
+		"type": "multi"
     },
 	"keqing": {
 		"name_en": "Keqing",
@@ -150,7 +186,18 @@
         "cover": "cover.png",
 		"sid": 115,
 		"example": "今天晚上吃啥好呢",
-		"language": "Chinese"
+		"language": "Chinese",
+		"type": "multi"
+    },
+	"eula": {
+		"name_en": "Eula",
+		"name_zh": "优菈",
+        "title": "原神-优菈",
+        "cover": "cover.png",
+		"sid": 124,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese",
+		"type": "multi"
     },
 	"bronya": {
 		"name_en": "Herrscher of Reason",
@@ -159,6 +206,7 @@
         "cover": "cover.png",
 		"sid": 193,
 		"example": "今天晚上吃啥好呢",
-		"language": "Chinese"
+		"language": "Chinese",
+		"type": "multi"
     }
 }

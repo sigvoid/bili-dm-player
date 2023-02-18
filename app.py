@@ -110,7 +110,7 @@ if __name__ == '__main__':
             len(hps_ms.symbols),
             hps_ms.data.filter_length // 2 + 1,
             hps_ms.train.segment_size // hps_ms.data.hop_length,
-            n_speakers=hps_ms.data.n_speakers,
+            n_speakers=hps_ms.data.n_speakers if info['type'] == "multi" else 0,
             **hps_ms.model)
         utils.load_checkpoint(f'pretrained_models/{i}/{i}.pth', net_g_ms, None)
         _ = net_g_ms.eval().to(device)
