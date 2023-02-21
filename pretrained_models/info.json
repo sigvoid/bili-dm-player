@@ -9,6 +9,26 @@
 		"language": "Japanese",
 		"type": "single"
     },
+	"takina": {
+		"name_en": "Takina Inoue",
+		"name_zh": "井上泷奈",
+        "title": "Lycoris Recoil-井ノ上たきな",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"nahida-jp": {
+		"name_en": "nahida(jp)",
+		"name_zh": "纳西妲(日语)",
+        "title": "Genshin Impact-ナヒーダ",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "single"
+    },
 	"iroha": {
 		"name_en": "Natsume Iroha",
 		"name_zh": "枣伊吕波",
@@ -203,6 +223,16 @@
 		"name_en": "Herrscher of Reason",
 		"name_zh": "理之律者",
         "title": "崩坏3-理之律者",
+        "cover": "cover.png",
+		"sid": 193,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese",
+		"type": "multi"
+    },
+	"theresa": {
+		"name_en": "Theresa",
+		"name_zh": "德丽莎",
+        "title": "崩坏3-德丽莎",
         "cover": "cover.png",
 		"sid": 193,
 		"example": "今天晚上吃啥好呢",
