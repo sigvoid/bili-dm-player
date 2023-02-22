@@ -118,6 +118,8 @@ if __name__ == '__main__':
     with gr.Blocks() as app:
         gr.Markdown(
             "# <center> vits-models\n"
+            "## <center> Please do not generate content that could infringe upon the rights or cause harm to individuals or organizations.\n"
+            "## <center> 请不要生成会对个人以及组织造成侵害的内容\n"
             "![visitor badge](https://visitor-badge.glitch.me/badge?page_id=sayashi.vits-models)\n\n"
             "[Open In Colab]"
             "(https://colab.research.google.com/drive/10QOk9NPgoKZUXkIhhuVaZ7SYra1MPMKH?usp=share_link)"
