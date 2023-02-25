@@ -20,8 +20,8 @@
 		"type": "single"
     },
 	"nahida-jp": {
-		"name_en": "nahida(jp)",
-		"name_zh": "纳西妲(日语)",
+		"name_en": "nahida-jp",
+		"name_zh": "纳西妲-日语",
         "title": "Genshin Impact-ナヒーダ",
         "cover": "cover.png",
 		"sid": 0,

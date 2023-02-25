@@ -8,7 +8,7 @@ import json
 import torch
 import gradio as gr
 from models import SynthesizerTrn
-from text import text_to_sequence
+from text import text_to_sequence, _clean_text
 from torch import no_grad, LongTensor
 import gradio.processing_utils as gr_processing_utils
 import logging
@@ -28,28 +28,29 @@ def audio_postprocess(self, y):
 
 gr.Audio.postprocess = audio_postprocess
 
-def get_text(text, hps):
-    text_norm, clean_text = text_to_sequence(text, hps.symbols, hps.data.text_cleaners)
+def get_text(text, hps, is_symbol):
+    text_norm, clean_text = text_to_sequence(text, hps.symbols, [] if is_symbol else hps.data.text_cleaners)
     if hps.data.add_blank:
         text_norm = commons.intersperse(text_norm, 0)
     text_norm = LongTensor(text_norm)
     return text_norm, clean_text
 
 def create_tts_fn(net_g_ms, speaker_id):
-    def tts_fn(text, language, noise_scale, noise_scale_w, length_scale):
+    def tts_fn(text, language, noise_scale, noise_scale_w, length_scale, is_symbol):
         text = text.replace('\n', ' ').replace('\r', '').replace(" ", "")
         if limitation:
             text_len = len(re.sub("\[([A-Z]{2})\]", "", text))
             max_len = 100
             if text_len > max_len:
                 return "Error: Text is too long", None
-        if language == 0:
-            text = f"[ZH]{text}[ZH]"
-        elif language == 1:
-            text = f"[JA]{text}[JA]"
-        else:
-            text = f"{text}"
-        stn_tst, clean_text = get_text(text, hps_ms)
+        if not is_symbol:
+            if language == 0:
+                text = f"[ZH]{text}[ZH]"
+            elif language == 1:
+                text = f"[JA]{text}[JA]"
+            else:
+                text = f"{text}"
+        stn_tst, clean_text = get_text(text, hps_ms, is_symbol)
         with no_grad():
             x_tst = stn_tst.unsqueeze(0).to(device)
             x_tst_lengths = LongTensor([stn_tst.size(0)]).to(device)
@@ -60,11 +61,24 @@ def create_tts_fn(net_g_ms, speaker_id):
         return "Success", (22050, audio)
     return tts_fn
 
+def create_to_symbol_fn(hps):
+    def to_symbol_fn(is_symbol_input, input_text, temp_text, temp_lang):
+        if temp_lang == 'Chinese':
+            clean_text = f'[ZH]{input_text}[ZH]'
+        elif temp_lang == "Japanese":
+            clean_text = f'[JA]{input_text}[JA]'
+        else:
+            clean_text = input_text
+        return (_clean_text(clean_text, hps.data.text_cleaners), input_text) if is_symbol_input else (temp_text, temp_text)
+
+    return to_symbol_fn
 def change_lang(language):
     if language == 0:
-        return 0.6, 0.668, 1.2
+        return 0.6, 0.668, 1.2, "Chinese"
+    elif language == 1:
+        return 0.6, 0.668, 1, "Japanese"
     else:
-        return 0.6, 0.668, 1
+        return 0.6, 0.668, 1, "Mix"
 
 download_audio_js = """
 () =>{{
@@ -114,12 +128,12 @@ if __name__ == '__main__':
             **hps_ms.model)
         utils.load_checkpoint(f'pretrained_models/{i}/{i}.pth', net_g_ms, None)
         _ = net_g_ms.eval().to(device)
-        models.append((sid, name_en, name_zh, title, cover, example, language, net_g_ms, create_tts_fn(net_g_ms, sid)))
+        models.append((sid, name_en, name_zh, title, cover, example, language, net_g_ms, create_tts_fn(net_g_ms, sid), create_to_symbol_fn(hps_ms)))
     with gr.Blocks() as app:
         gr.Markdown(
             "# <center> vits-models\n"
             "## <center> Please do not generate content that could infringe upon the rights or cause harm to individuals or organizations.\n"
-            "## <center> 请不要生成会对个人以及组织造成侵害的内容\n"
+            "## <center> ·请不要生成会对个人以及组织造成侵害的内容\n"
             "![visitor badge](https://visitor-badge.glitch.me/badge?page_id=sayashi.vits-models)\n\n"
             "[Open In Colab]"
             "(https://colab.research.google.com/drive/10QOk9NPgoKZUXkIhhuVaZ7SYra1MPMKH?usp=share_link)"
@@ -129,7 +143,7 @@ if __name__ == '__main__':
 
         with gr.Tabs():
             with gr.TabItem("EN"):
-                for (sid, name_en, name_zh, title, cover, example, language, net_g_ms, tts_fn) in models:
+                for (sid, name_en, name_zh, title, cover, example, language, net_g_ms, tts_fn, to_symbol_fn) in models:
                     with gr.TabItem(name_en):
                         with gr.Row():
                             gr.Markdown(
@@ -143,7 +157,14 @@ if __name__ == '__main__':
                                 input_text = gr.Textbox(label="Text (100 words limitation)", lines=5, value=example, elem_id=f"input-text-en-{name_en.replace(' ','')}")
                                 lang = gr.Dropdown(label="Language", choices=["Chinese", "Japanese", "Mix（wrap the Chinese text with [ZH][ZH], wrap the Japanese text with [JA][JA]）"],
                                             type="index", value=language)
-                                btn = gr.Button(value="Generate")
+                                temp_lang = gr.Variable(value=language)
+                                with gr.Accordion(label="Advanced Options", open=False):
+                                    temp_text_var = gr.Variable()
+                                    symbol_input = gr.Checkbox(value=False, label="Symbol input")
+                                    symbol_list = gr.Dataset(label="Symbol list", components=[input_text],
+                                                             samples=[[x] for x in hps_ms.symbols])
+                                    symbol_list_json = gr.Json(value=hps_ms.symbols, visible=False)
+                                btn = gr.Button(value="Generate", variant="primary")
                                 with gr.Row():
                                     ns = gr.Slider(label="noise_scale", minimum=0.1, maximum=1.0, step=0.1, value=0.6, interactive=True)
                                     nsw = gr.Slider(label="noise_scale_w", minimum=0.1, maximum=1.0, step=0.1, value=0.668, interactive=True)
@@ -152,11 +173,36 @@ if __name__ == '__main__':
                                 o1 = gr.Textbox(label="Output Message")
                                 o2 = gr.Audio(label="Output Audio", elem_id=f"tts-audio-en-{name_en.replace(' ','')}")
                                 download = gr.Button("Download Audio")
-                            btn.click(tts_fn, inputs=[input_text, lang,  ns, nsw, ls], outputs=[o1, o2])
-                            download.click(None, [], [], _js=download_audio_js.format(audio_id=f"en-{name_en.replace(' ','')}"))
-                            lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls])
+                            btn.click(tts_fn, inputs=[input_text, lang,  ns, nsw, ls, symbol_input], outputs=[o1, o2])
+                            download.click(None, [], [], _js=download_audio_js.format(audio_id=f"en-{name_en.replace(' ', '')}"))
+                            lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls, temp_lang])
+                            symbol_input.change(
+                                to_symbol_fn,
+                                [symbol_input, input_text, temp_text_var, temp_lang],
+                                [input_text, temp_text_var]
+                            )
+                            symbol_list.click(None, [symbol_list, symbol_list_json], [input_text],
+                                              _js=f"""
+                            (i,symbols) => {{
+                                let root = document.querySelector("body > gradio-app");
+                                if (root.shadowRoot != null)
+                                    root = root.shadowRoot;
+                                let text_input = root.querySelector("#input-text-en-{name_en.replace(' ', '')}").querySelector("textarea");
+                                let startPos = text_input.selectionStart;
+                                let endPos = text_input.selectionEnd;
+                                let oldTxt = text_input.value;
+                                let result = oldTxt.substring(0, startPos) + symbols[i] + oldTxt.substring(endPos);
+                                text_input.value = result;
+                                let x = window.scrollX, y = window.scrollY;
+                                text_input.focus();
+                                text_input.selectionStart = startPos + symbols[i].length;
+                                text_input.selectionEnd = startPos + symbols[i].length;
+                                text_input.blur();
+                                window.scrollTo(x, y);
+                                return text_input.value;
+                            }}""")
             with gr.TabItem("中文"):
-                for (sid, name_en, name_zh, title, cover, example, language,  net_g_ms, tts_fn) in models:
+                for (sid, name_en, name_zh, title, cover, example, language,  net_g_ms, tts_fn, to_symbol_fn) in models:
                     with gr.TabItem(name_zh):
                         with gr.Row():
                             gr.Markdown(
@@ -170,7 +216,14 @@ if __name__ == '__main__':
                                 input_text = gr.Textbox(label="文本 (100字上限)", lines=5, value=example, elem_id=f"input-text-zh-{name_zh}")
                                 lang = gr.Dropdown(label="语言", choices=["中文", "日语", "中日混合（中文用[ZH][ZH]包裹起来，日文用[JA][JA]包裹起来）"],
                                             type="index", value="中文"if language == "Chinese" else "日语")
-                                btn = gr.Button(value="生成")
+                                temp_lang = gr.Variable(value=language)
+                                with gr.Accordion(label="高级选项", open=False):
+                                    temp_text_var = gr.Variable()
+                                    symbol_input = gr.Checkbox(value=False, label="符号输入")
+                                    symbol_list = gr.Dataset(label="符号列表", components=[input_text],
+                                                             samples=[[x] for x in hps_ms.symbols])
+                                    symbol_list_json = gr.Json(value=hps_ms.symbols, visible=False)
+                                btn = gr.Button(value="生成", variant="primary")
                                 with gr.Row():
                                     ns = gr.Slider(label="控制感情变化程度", minimum=0.1, maximum=1.0, step=0.1, value=0.6, interactive=True)
                                     nsw = gr.Slider(label="控制音素发音长度", minimum=0.1, maximum=1.0, step=0.1, value=0.668, interactive=True)
@@ -179,7 +232,32 @@ if __name__ == '__main__':
                                 o1 = gr.Textbox(label="输出信息")
                                 o2 = gr.Audio(label="输出音频", elem_id=f"tts-audio-zh-{name_zh}")
                                 download = gr.Button("下载音频")
-                            btn.click(tts_fn, inputs=[input_text, lang,  ns, nsw, ls], outputs=[o1, o2])
+                            btn.click(tts_fn, inputs=[input_text, lang,  ns, nsw, ls, symbol_input], outputs=[o1, o2])
                             download.click(None, [], [], _js=download_audio_js.format(audio_id=f"zh-{name_zh}"))
                             lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls])
+                            symbol_input.change(
+                                to_symbol_fn,
+                                [symbol_input, input_text, temp_text_var, temp_lang],
+                                [input_text, temp_text_var]
+                            )
+                            symbol_list.click(None, [symbol_list, symbol_list_json], [input_text],
+                                              _js=f"""
+                            (i,symbols) => {{
+                                let root = document.querySelector("body > gradio-app");
+                                if (root.shadowRoot != null)
+                                    root = root.shadowRoot;
+                                let text_input = root.querySelector("#input-text-zh-{name_zh}").querySelector("textarea");
+                                let startPos = text_input.selectionStart;
+                                let endPos = text_input.selectionEnd;
+                                let oldTxt = text_input.value;
+                                let result = oldTxt.substring(0, startPos) + symbols[i] + oldTxt.substring(endPos);
+                                text_input.value = result;
+                                let x = window.scrollX, y = window.scrollY;
+                                text_input.focus();
+                                text_input.selectionStart = startPos + symbols[i].length;
+                                text_input.selectionEnd = startPos + symbols[i].length;
+                                text_input.blur();
+                                window.scrollTo(x, y);
+                                return text_input.value;
+                            }}""")
     app.queue(concurrency_count=1).launch(show_api=False, share=args.share)
