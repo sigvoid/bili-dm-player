@@ -1,4 +1,34 @@
 {
+	"eriko": {
+		"name_en": "Eriko",
+		"name_zh": "惠理子",
+        "title": "Princess Connect! Re:Dive-倉石恵理子",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "プリンセスコネクト",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"kokoro": {
+		"name_en": "Kokoro",
+		"name_zh": "可可萝",
+        "title": "Princess Connect! Re:Dive-棗こころ",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"kyaru": {
+		"name_en": "Kyaru",
+		"name_zh": "凯露",
+        "title": "Princess Connect! Re:Dive-キャル",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね!!",
+		"language": "Japanese",
+		"type": "multi"
+    },
 	"chisato": {
 		"name_en": "Nishikigi Chisato",
 		"name_zh": "锦木千束",
