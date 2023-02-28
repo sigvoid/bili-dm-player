@@ -1,4 +1,24 @@
 {
+	"ameth": {
+		"name_en": "Ameth",
+		"name_zh": "爱梅斯",
+        "title": "Princess Connect! Re:Dive-アメス",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "きょうは高気圧に緩やかに覆われるでしょう。沖縄と九州から北海道にかけて晴れる所が多くなりそうです。",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"hatsune": {
+		"name_en": "Hatsune",
+		"name_zh": "柏崎初音",
+        "title": "Princess Connect! Re:Dive-柏崎初音",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "バトルでの役割や立ち回りをチェックしてみてくださいね！",
+		"language": "Japanese",
+		"type": "multi"
+    },
 	"eriko": {
 		"name_en": "Eriko",
 		"name_zh": "惠理子",
@@ -9,15 +29,25 @@
 		"language": "Japanese",
 		"type": "single"
     },
+	"pecorine": {
+		"name_en": "Pecorine",
+		"name_zh": "佩可莉姆",
+        "title": "Princess Connect! Re:Dive-ペコリーヌ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね!",
+		"language": "Japanese",
+		"type": "multi"
+    },
 	"kokoro": {
 		"name_en": "Kokoro",
 		"name_zh": "可可萝",
         "title": "Princess Connect! Re:Dive-棗こころ",
         "cover": "cover.png",
-		"sid": 0,
+		"sid": 10,
 		"example": "今日はいい天気ですね。",
 		"language": "Japanese",
-		"type": "single"
+		"type": "multi"
     },
 	"kyaru": {
 		"name_en": "Kyaru",
