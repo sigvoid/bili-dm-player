@@ -41,6 +41,8 @@ def create_tts_fn(net_g_ms, speaker_id):
         if limitation:
             text_len = len(re.sub("\[([A-Z]{2})\]", "", text))
             max_len = 100
+            if is_symbol:
+                max_len *= 3
             if text_len > max_len:
                 return "Error: Text is too long", None
         if not is_symbol:
@@ -154,7 +156,7 @@ if __name__ == '__main__':
                             )
                         with gr.Row():
                             with gr.Column():
-                                input_text = gr.Textbox(label="Text (100 words limitation)", lines=5, value=example, elem_id=f"input-text-en-{name_en.replace(' ','')}")
+                                input_text = gr.Textbox(label="Text (100 words limitation)" if limitation else "Text", lines=5, value=example, elem_id=f"input-text-en-{name_en.replace(' ','')}")
                                 lang = gr.Dropdown(label="Language", choices=["Chinese", "Japanese", "Mix（wrap the Chinese text with [ZH][ZH], wrap the Japanese text with [JA][JA]）"],
                                             type="index", value=language)
                                 temp_lang = gr.Variable(value=language)
@@ -213,7 +215,7 @@ if __name__ == '__main__':
                             )
                         with gr.Row():
                             with gr.Column():
-                                input_text = gr.Textbox(label="文本 (100字上限)", lines=5, value=example, elem_id=f"input-text-zh-{name_zh}")
+                                input_text = gr.Textbox(label="文本 (100字上限)" if limitation else "文本", lines=5, value=example, elem_id=f"input-text-zh-{name_zh}")
                                 lang = gr.Dropdown(label="语言", choices=["中文", "日语", "中日混合（中文用[ZH][ZH]包裹起来，日文用[JA][JA]包裹起来）"],
                                             type="index", value="中文"if language == "Chinese" else "日语")
                                 temp_lang = gr.Variable(value=language)
