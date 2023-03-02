@@ -44,10 +44,10 @@
 		"name_zh": "可可萝",
         "title": "Princess Connect! Re:Dive-棗こころ",
         "cover": "cover.png",
-		"sid": 10,
+		"sid": 0,
 		"example": "今日はいい天気ですね。",
 		"language": "Japanese",
-		"type": "multi"
+		"type": "single"
     },
 	"kyaru": {
 		"name_en": "Kyaru",
