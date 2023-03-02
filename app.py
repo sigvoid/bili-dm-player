@@ -115,6 +115,8 @@ if __name__ == '__main__':
     with open("pretrained_models/info.json", "r", encoding="utf-8") as f:
         models_info = json.load(f)
     for i, info in models_info.items():
+        if not info['enable']:
+            continue
         sid = info['sid']
         name_en = info['name_en']
         name_zh = info['name_zh']

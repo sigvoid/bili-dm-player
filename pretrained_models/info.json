@@ -1,5 +1,50 @@
 {
+	"yuni": {
+		"enable": true,
+		"name_en": "Yuni",
+		"name_zh": "优妮",
+        "title": "Princess Connect! Re:Dive-ユニ",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "それに新しいお菓子屋さんも出来てみんな買いものを楽しんでいます！",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"misora": {
+		"enable": false,
+		"name_en": "Misora",
+		"name_zh": "美空",
+        "title": "Princess Connect! Re:Dive-ミソラ",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "ただいま。お詫びにお前の好きなケーキを買ってきてやったから、一緒に喰おうな？",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"kyoka": {
+		"enable": true,
+		"name_en": "Kyoka",
+		"name_zh": "镜华",
+        "title": "Princess Connect! Re:Dive-キョウカ",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "まだまだ領内の発展に落ち着きは生まれそうにないわね",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"hiyori": {
+		"enable": false,
+		"name_en": "Hiyori",
+		"name_zh": "日和莉",
+        "title": "Princess Connect! Re:Dive-ヒヨリ",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "今日はいい天気ですね!",
+		"language": "Japanese",
+		"type": "single"
+    },
 	"ameth": {
+		"enable": true,
 		"name_en": "Ameth",
 		"name_zh": "爱梅斯",
         "title": "Princess Connect! Re:Dive-アメス",
@@ -10,6 +55,7 @@
 		"type": "single"
     },
 	"hatsune": {
+		"enable": true,
 		"name_en": "Hatsune",
 		"name_zh": "柏崎初音",
         "title": "Princess Connect! Re:Dive-柏崎初音",
@@ -20,6 +66,7 @@
 		"type": "multi"
     },
 	"eriko": {
+		"enable": true,
 		"name_en": "Eriko",
 		"name_zh": "惠理子",
         "title": "Princess Connect! Re:Dive-倉石恵理子",
@@ -30,6 +77,7 @@
 		"type": "single"
     },
 	"pecorine": {
+		"enable": true,
 		"name_en": "Pecorine",
 		"name_zh": "佩可莉姆",
         "title": "Princess Connect! Re:Dive-ペコリーヌ",
@@ -40,6 +88,7 @@
 		"type": "multi"
     },
 	"kokoro": {
+		"enable": true,
 		"name_en": "Kokoro",
 		"name_zh": "可可萝",
         "title": "Princess Connect! Re:Dive-棗こころ",
@@ -50,6 +99,7 @@
 		"type": "multi"
     },
 	"kyaru": {
+		"enable": true,
 		"name_en": "Kyaru",
 		"name_zh": "凯露",
         "title": "Princess Connect! Re:Dive-キャル",
@@ -60,6 +110,7 @@
 		"type": "multi"
     },
 	"chisato": {
+		"enable": true,
 		"name_en": "Nishikigi Chisato",
 		"name_zh": "锦木千束",
         "title": "Lycoris Recoil-錦木千束",
@@ -70,6 +121,7 @@
 		"type": "single"
     },
 	"takina": {
+		"enable": true,
 		"name_en": "Takina Inoue",
 		"name_zh": "井上泷奈",
         "title": "Lycoris Recoil-井ノ上たきな",
@@ -79,7 +131,19 @@
 		"language": "Japanese",
 		"type": "single"
     },
+	"ayaka-jp": {
+		"enable": true,
+		"name_en": "ayaka-jp",
+		"name_zh": "神里绫华-日语",
+        "title": "Genshin Impact-神里綾華",
+        "cover": "cover.png",
+		"sid": 303,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
 	"nahida-jp": {
+		"enable": true,
 		"name_en": "nahida-jp",
 		"name_zh": "纳西妲-日语",
         "title": "Genshin Impact-ナヒーダ",
@@ -90,6 +154,7 @@
 		"type": "single"
     },
 	"iroha": {
+		"enable": true,
 		"name_en": "Natsume Iroha",
 		"name_zh": "枣伊吕波",
         "title": "Blue Archive-棗イロハ,",
@@ -100,6 +165,7 @@
 		"type": "multi"
     },
 	"mika": {
+		"enable": true,
 		"name_en": "Misono Mika",
 		"name_zh": "圣园未花",
         "title": "Blue Archive-聖園ミカ",
@@ -110,6 +176,7 @@
 		"type": "multi"
     },
 	"miyu": {
+		"enable": true,
 		"name_en": "Kasumizawa Miyu",
 		"name_zh": "霞泽美游",
         "title": "Blue Archive-霞沢ミユ",
@@ -120,6 +187,7 @@
 		"type": "multi"
     },
 	"karin": {
+		"enable": true,
 		"name_en": "Kakudate Karin",
 		"name_zh": "角楯花凛",
         "title": "Blue Archive-角楯カリン",
@@ -130,6 +198,7 @@
 		"type": "multi"
     },
 	"asuna": {
+		"enable": true,
 		"name_en": "Ichinose Asuna",
 		"name_zh": "一之濑明日奈",
         "title": "Blue Archive-一之瀬アスナ",
@@ -140,6 +209,7 @@
 		"type": "multi"
     },
 	"azusa": {
+		"enable": true,
 		"name_en": "Shirasu Azusa",
 		"name_zh": "白洲梓",
         "title": "Blue Archive-白洲アズサ",
@@ -150,6 +220,7 @@
 		"type": "multi"
     },
 	"alice": {
+		"enable": true,
 		"name_en": "Tendou Alice",
 		"name_zh": "天童爱丽丝",
         "title": "Blue Archive-天童アリス",
@@ -160,6 +231,7 @@
 		"type": "multi"
     },
 	"shiroko": {
+		"enable": true,
 		"name_en": "Sunaookami Shiroko",
 		"name_zh": "砂狼白子",
         "title": "Blue Archive-砂狼シロコ",
@@ -170,6 +242,7 @@
 		"type": "multi"
     },
 	"hoshino": {
+		"enable": true,
 		"name_en": "Takanasi Hosino",
 		"name_zh": "小鸟游星野",
         "title": "Blue Archive-小鳥遊 ホシノ",
@@ -180,6 +253,7 @@
 		"type": "multi"
     },
 	"hina": {
+		"enable": true,
 		"name_en": "Sorasaki Hina",
 		"name_zh": "空崎日奈",
         "title": "Blue Archive-空崎 ヒナ",
@@ -190,6 +264,7 @@
 		"type": "multi"
     },
 	"iori": {
+		"enable": true,
 		"name_en": "Shiromi Iori",
 		"name_zh": "银镜伊织",
         "title": "Blue Archive-銀鏡イオリ",
@@ -200,6 +275,7 @@
 		"type": "multi"
     },
 	"izuna": {
+		"enable": true,
 		"name_en": "Kuda Izuna",
 		"name_zh": "久田泉奈",
         "title": "Blue Archive-久田イズナ",
@@ -210,6 +286,7 @@
 		"type": "multi"
     },
 	"yuuka": {
+		"enable": true,
 		"name_en": "Hayase Yuuka",
 		"name_zh": "早濑优香",
         "title": "Blue Archive-早瀬ユウカ",
@@ -220,6 +297,7 @@
 		"type": "multi"
     },
 	"doom": {
+		"enable": true,
 		"name_en": "Doomfist",
 		"name_zh": "末日铁拳",
         "title": "Overwatch 2-Doomfist",
@@ -230,6 +308,7 @@
 		"type": "multi"
     },
 	"echo": {
+		"enable": true,
 		"name_en": "Echo",
 		"name_zh": "回声",
         "title": "Overwatch 2-Echo",
@@ -240,6 +319,7 @@
 		"type": "multi"
     },
 	"zenyatta": {
+		"enable": true,
 		"name_en": "Zenyatta",
 		"name_zh": "禅雅塔",
         "title": "Overwatch 2-Zenyatta",
@@ -250,6 +330,7 @@
 		"type": "multi"
     },
 	"abyssinvoker": {
+		"enable": false,
 		"name_en": "Abyss Invoker",
 		"name_zh": "深渊使徒",
         "title": "原神-深渊使徒",
@@ -260,6 +341,7 @@
 		"type": "multi"
     },
 	"keqing": {
+		"enable": false,
 		"name_en": "Keqing",
 		"name_zh": "刻晴",
         "title": "原神-刻晴",
@@ -270,6 +352,7 @@
 		"type": "multi"
     },
 	"eula": {
+		"enable": false,
 		"name_en": "Eula",
 		"name_zh": "优菈",
         "title": "原神-优菈",
@@ -280,6 +363,7 @@
 		"type": "multi"
     },
 	"bronya": {
+		"enable": false,
 		"name_en": "Herrscher of Reason",
 		"name_zh": "理之律者",
         "title": "崩坏3-理之律者",
@@ -290,6 +374,7 @@
 		"type": "multi"
     },
 	"theresa": {
+		"enable": false,
 		"name_en": "Theresa",
 		"name_zh": "德丽莎",
         "title": "崩坏3-德丽莎",
