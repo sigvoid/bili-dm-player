@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 	"yuni": {
 		"enable": true,
@@ -93,10 +94,10 @@
 		"name_zh": "可可萝",
         "title": "Princess Connect! Re:Dive-棗こころ",
         "cover": "cover.png",
-		"sid": 10,
+		"sid": 0,
 		"example": "今日はいい天気ですね。",
 		"language": "Japanese",
-		"type": "multi"
+		"type": "single"
     },
 	"kyaru": {
 		"enable": true,
@@ -384,4 +385,307 @@
 		"language": "Chinese",
 		"type": "multi"
     }
+=======
+{
+	"ameth": {
+		"name_en": "Ameth",
+		"name_zh": "爱梅斯",
+        "title": "Princess Connect! Re:Dive-アメス",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "きょうは高気圧に緩やかに覆われるでしょう。沖縄と九州から北海道にかけて晴れる所が多くなりそうです。",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"hatsune": {
+		"name_en": "Hatsune",
+		"name_zh": "柏崎初音",
+        "title": "Princess Connect! Re:Dive-柏崎初音",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "バトルでの役割や立ち回りをチェックしてみてくださいね！",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"eriko": {
+		"name_en": "Eriko",
+		"name_zh": "惠理子",
+        "title": "Princess Connect! Re:Dive-倉石恵理子",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "プリンセスコネクト",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"pecorine": {
+		"name_en": "Pecorine",
+		"name_zh": "佩可莉姆",
+        "title": "Princess Connect! Re:Dive-ペコリーヌ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね!",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"kokoro": {
+		"name_en": "Kokoro",
+		"name_zh": "可可萝",
+        "title": "Princess Connect! Re:Dive-棗こころ",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"kyaru": {
+		"name_en": "Kyaru",
+		"name_zh": "凯露",
+        "title": "Princess Connect! Re:Dive-キャル",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね!!",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"chisato": {
+		"name_en": "Nishikigi Chisato",
+		"name_zh": "锦木千束",
+        "title": "Lycoris Recoil-錦木千束",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"takina": {
+		"name_en": "Takina Inoue",
+		"name_zh": "井上泷奈",
+        "title": "Lycoris Recoil-井ノ上たきな",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"nahida-jp": {
+		"name_en": "nahida-jp",
+		"name_zh": "纳西妲-日语",
+        "title": "Genshin Impact-ナヒーダ",
+        "cover": "cover.png",
+		"sid": 0,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "single"
+    },
+	"iroha": {
+		"name_en": "Natsume Iroha",
+		"name_zh": "枣伊吕波",
+        "title": "Blue Archive-棗イロハ,",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"mika": {
+		"name_en": "Misono Mika",
+		"name_zh": "圣园未花",
+        "title": "Blue Archive-聖園ミカ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"miyu": {
+		"name_en": "Kasumizawa Miyu",
+		"name_zh": "霞泽美游",
+        "title": "Blue Archive-霞沢ミユ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"karin": {
+		"name_en": "Kakudate Karin",
+		"name_zh": "角楯花凛",
+        "title": "Blue Archive-角楯カリン",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"asuna": {
+		"name_en": "Ichinose Asuna",
+		"name_zh": "一之濑明日奈",
+        "title": "Blue Archive-一之瀬アスナ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"azusa": {
+		"name_en": "Shirasu Azusa",
+		"name_zh": "白洲梓",
+        "title": "Blue Archive-白洲アズサ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"alice": {
+		"name_en": "Tendou Alice",
+		"name_zh": "天童爱丽丝",
+        "title": "Blue Archive-天童アリス",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"shiroko": {
+		"name_en": "Sunaookami Shiroko",
+		"name_zh": "砂狼白子",
+        "title": "Blue Archive-砂狼シロコ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"hoshino": {
+		"name_en": "Takanasi Hosino",
+		"name_zh": "小鸟游星野",
+        "title": "Blue Archive-小鳥遊 ホシノ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"hina": {
+		"name_en": "Sorasaki Hina",
+		"name_zh": "空崎日奈",
+        "title": "Blue Archive-空崎 ヒナ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"iori": {
+		"name_en": "Shiromi Iori",
+		"name_zh": "银镜伊织",
+        "title": "Blue Archive-銀鏡イオリ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"izuna": {
+		"name_en": "Kuda Izuna",
+		"name_zh": "久田泉奈",
+        "title": "Blue Archive-久田イズナ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"yuuka": {
+		"name_en": "Hayase Yuuka",
+		"name_zh": "早濑优香",
+        "title": "Blue Archive-早瀬ユウカ",
+        "cover": "cover.png",
+		"sid": 40,
+		"example": "今日はいい天気ですね。",
+		"language": "Japanese",
+		"type": "multi"
+    },
+	"doom": {
+		"name_en": "Doomfist",
+		"name_zh": "末日铁拳",
+        "title": "Overwatch 2-Doomfist",
+        "cover": "cover.png",
+		"sid": 93,
+		"example": "无需等待队列，并且没有长度限制",
+		"language": "Chinese",
+		"type": "multi"
+    },
+	"echo": {
+		"name_en": "Echo",
+		"name_zh": "回声",
+        "title": "Overwatch 2-Echo",
+        "cover": "cover.png",
+		"sid": 93,
+		"example": "正在复制，派蒙",
+		"language": "Chinese",
+		"type": "multi"
+    },
+	"zenyatta": {
+		"name_en": "Zenyatta",
+		"name_zh": "禅雅塔",
+        "title": "Overwatch 2-Zenyatta",
+        "cover": "cover.png",
+		"sid": 93,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese",
+		"type": "multi"
+    },
+	"abyssinvoker": {
+		"name_en": "Abyss Invoker",
+		"name_zh": "深渊使徒",
+        "title": "原神-深渊使徒",
+        "cover": "cover.png",
+		"sid": 94,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese",
+		"type": "multi"
+    },
+	"keqing": {
+		"name_en": "Keqing",
+		"name_zh": "刻晴",
+        "title": "原神-刻晴",
+        "cover": "cover.png",
+		"sid": 115,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese",
+		"type": "multi"
+    },
+	"eula": {
+		"name_en": "Eula",
+		"name_zh": "优菈",
+        "title": "原神-优菈",
+        "cover": "cover.png",
+		"sid": 124,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese",
+		"type": "multi"
+    },
+	"bronya": {
+		"name_en": "Herrscher of Reason",
+		"name_zh": "理之律者",
+        "title": "崩坏3-理之律者",
+        "cover": "cover.png",
+		"sid": 193,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese",
+		"type": "multi"
+    },
+	"theresa": {
+		"name_en": "Theresa",
+		"name_zh": "德丽莎",
+        "title": "崩坏3-德丽莎",
+        "cover": "cover.png",
+		"sid": 193,
+		"example": "今天晚上吃啥好呢",
+		"language": "Chinese",
+		"type": "multi"
+    }
+>>>>>>> 30943f08283605b740f57f46c711e5193bf4b700
 }
