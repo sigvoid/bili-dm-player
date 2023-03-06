@@ -107,6 +107,7 @@ download_audio_js = """
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--device', type=str, default='cpu')
+    parser.add_argument('--api', action="store_true", default=False)
     parser.add_argument("--share", action="store_true", default=False, help="share gradio app")
     args = parser.parse_args()
     device = torch.device(args.device)
@@ -236,7 +237,7 @@ if __name__ == '__main__':
                                 o1 = gr.Textbox(label="输出信息")
                                 o2 = gr.Audio(label="输出音频", elem_id=f"tts-audio-zh-{name_zh}")
                                 download = gr.Button("下载音频")
-                            btn.click(tts_fn, inputs=[input_text, lang,  ns, nsw, ls, symbol_input], outputs=[o1, o2])
+                            btn.click(tts_fn, inputs=[input_text, lang,  ns, nsw, ls, symbol_input], outputs=[o1, o2], api_name="tts")
                             download.click(None, [], [], _js=download_audio_js.format(audio_id=f"zh-{name_zh}"))
                             lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls])
                             symbol_input.change(
@@ -264,4 +265,4 @@ if __name__ == '__main__':
                                 window.scrollTo(x, y);
                                 return text_input.value;
                             }}""")
-    app.queue(concurrency_count=1).launch(show_api=False, share=args.share)
+    app.queue(concurrency_count=1, api_open=args.api).launch(share=args.share)
