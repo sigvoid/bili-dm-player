@@ -297,7 +297,7 @@
 		"type": "multi"
     },
 	"doom": {
-		"enable": true,
+		"enable": false,
 		"name_en": "Doomfist",
 		"name_zh": "末日铁拳",
         "title": "Overwatch 2-Doomfist",
@@ -308,7 +308,7 @@
 		"type": "multi"
     },
 	"echo": {
-		"enable": true,
+		"enable": false,
 		"name_en": "Echo",
 		"name_zh": "回声",
         "title": "Overwatch 2-Echo",
@@ -319,7 +319,7 @@
 		"type": "multi"
     },
 	"zenyatta": {
-		"enable": true,
+		"enable": false,
 		"name_en": "Zenyatta",
 		"name_zh": "禅雅塔",
         "title": "Overwatch 2-Zenyatta",
