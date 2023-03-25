@@ -1,4 +1,15 @@
 {
+	"momoi": {
+		"enable": true,
+		"name_en": "Saiba Momoi",
+		"name_zh": "才羽桃井",
+        "title": "Blue Archive-才羽モモイ",
+        "cover": "cover.png",
+		"sid": 10,
+		"example": "すずめの戸締り、みんなは何回みた〜？",
+		"language": "Japanese",
+		"type": "multi"
+    },
 	"yuni": {
 		"enable": true,
 		"name_en": "Yuni",
@@ -132,7 +143,7 @@
 		"type": "single"
     },
 	"ayaka-jp": {
-		"enable": true,
+		"enable": false,
 		"name_en": "ayaka-jp",
 		"name_zh": "神里绫华-日语",
         "title": "Genshin Impact-神里綾華",
@@ -143,7 +154,7 @@
 		"type": "multi"
     },
 	"nahida-jp": {
-		"enable": true,
+		"enable": false,
 		"name_en": "nahida-jp",
 		"name_zh": "纳西妲-日语",
         "title": "Genshin Impact-ナヒーダ",
