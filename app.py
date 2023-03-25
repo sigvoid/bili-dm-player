@@ -65,9 +65,9 @@ def create_tts_fn(net_g_ms, speaker_id):
 
 def create_to_symbol_fn(hps):
     def to_symbol_fn(is_symbol_input, input_text, temp_text, temp_lang):
-        if temp_lang == 'Chinese':
+        if temp_lang == 0:
             clean_text = f'[ZH]{input_text}[ZH]'
-        elif temp_lang == "Japanese":
+        elif temp_lang == 1:
             clean_text = f'[JA]{input_text}[JA]'
         else:
             clean_text = input_text
@@ -76,11 +76,11 @@ def create_to_symbol_fn(hps):
     return to_symbol_fn
 def change_lang(language):
     if language == 0:
-        return 0.6, 0.668, 1.2, "Chinese"
+        return 0.6, 0.668, 1.2
     elif language == 1:
-        return 0.6, 0.668, 1, "Japanese"
+        return 0.6, 0.668, 1
     else:
-        return 0.6, 0.668, 1, "Mix"
+        return 0.6, 0.668, 1
 
 download_audio_js = """
 () =>{{
@@ -162,7 +162,6 @@ if __name__ == '__main__':
                                 input_text = gr.Textbox(label="Text (100 words limitation)" if limitation else "Text", lines=5, value=example, elem_id=f"input-text-en-{name_en.replace(' ','')}")
                                 lang = gr.Dropdown(label="Language", choices=["Chinese", "Japanese", "Mix（wrap the Chinese text with [ZH][ZH], wrap the Japanese text with [JA][JA]）"],
                                             type="index", value=language)
-                                temp_lang = gr.Variable(value=language)
                                 with gr.Accordion(label="Advanced Options", open=False):
                                     temp_text_var = gr.Variable()
                                     symbol_input = gr.Checkbox(value=False, label="Symbol input")
@@ -180,10 +179,10 @@ if __name__ == '__main__':
                                 download = gr.Button("Download Audio")
                             btn.click(tts_fn, inputs=[input_text, lang,  ns, nsw, ls, symbol_input], outputs=[o1, o2], api_name=f"tts-{name_en}")
                             download.click(None, [], [], _js=download_audio_js.format(audio_id=f"en-{name_en.replace(' ', '')}"))
-                            lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls, temp_lang])
+                            lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls])
                             symbol_input.change(
                                 to_symbol_fn,
-                                [symbol_input, input_text, temp_text_var, temp_lang],
+                                [symbol_input, input_text, temp_text_var, lang],
                                 [input_text, temp_text_var]
                             )
                             symbol_list.click(None, [symbol_list, symbol_list_json], [input_text],
@@ -221,7 +220,6 @@ if __name__ == '__main__':
                                 input_text = gr.Textbox(label="文本 (100字上限)" if limitation else "文本", lines=5, value=example, elem_id=f"input-text-zh-{name_zh}")
                                 lang = gr.Dropdown(label="语言", choices=["中文", "日语", "中日混合（中文用[ZH][ZH]包裹起来，日文用[JA][JA]包裹起来）"],
                                             type="index", value="中文"if language == "Chinese" else "日语")
-                                temp_lang = gr.Variable(value=language)
                                 with gr.Accordion(label="高级选项", open=False):
                                     temp_text_var = gr.Variable()
                                     symbol_input = gr.Checkbox(value=False, label="符号输入")
@@ -242,7 +240,7 @@ if __name__ == '__main__':
                             lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls])
                             symbol_input.change(
                                 to_symbol_fn,
-                                [symbol_input, input_text, temp_text_var, temp_lang],
+                                [symbol_input, input_text, temp_text_var, lang],
                                 [input_text, temp_text_var]
                             )
                             symbol_list.click(None, [symbol_list, symbol_list_json], [input_text],
