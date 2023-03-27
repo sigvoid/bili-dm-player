@@ -64,14 +64,14 @@ def create_tts_fn(net_g_ms, speaker_id):
     return tts_fn
 
 def create_to_symbol_fn(hps):
-    def to_symbol_fn(is_symbol_input, input_text, temp_text, temp_lang):
+    def to_symbol_fn(is_symbol_input, input_text, temp_lang):
         if temp_lang == 0:
             clean_text = f'[ZH]{input_text}[ZH]'
         elif temp_lang == 1:
             clean_text = f'[JA]{input_text}[JA]'
         else:
             clean_text = input_text
-        return (_clean_text(clean_text, hps.data.text_cleaners), input_text) if is_symbol_input else (temp_text, temp_text)
+        return _clean_text(clean_text, hps.data.text_cleaners) if is_symbol_input else ''
 
     return to_symbol_fn
 def change_lang(language):
@@ -163,7 +163,6 @@ if __name__ == '__main__':
                                 lang = gr.Dropdown(label="Language", choices=["Chinese", "Japanese", "Mix（wrap the Chinese text with [ZH][ZH], wrap the Japanese text with [JA][JA]）"],
                                             type="index", value=language)
                                 with gr.Accordion(label="Advanced Options", open=False):
-                                    temp_text_var = gr.Variable()
                                     symbol_input = gr.Checkbox(value=False, label="Symbol input")
                                     symbol_list = gr.Dataset(label="Symbol list", components=[input_text],
                                                              samples=[[x] for x in hps_ms.symbols])
@@ -182,8 +181,8 @@ if __name__ == '__main__':
                             lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls])
                             symbol_input.change(
                                 to_symbol_fn,
-                                [symbol_input, input_text, temp_text_var, lang],
-                                [input_text, temp_text_var]
+                                [symbol_input, input_text, lang],
+                                [input_text]
                             )
                             symbol_list.click(None, [symbol_list, symbol_list_json], [input_text],
                                               _js=f"""
@@ -221,7 +220,6 @@ if __name__ == '__main__':
                                 lang = gr.Dropdown(label="语言", choices=["中文", "日语", "中日混合（中文用[ZH][ZH]包裹起来，日文用[JA][JA]包裹起来）"],
                                             type="index", value="中文"if language == "Chinese" else "日语")
                                 with gr.Accordion(label="高级选项", open=False):
-                                    temp_text_var = gr.Variable()
                                     symbol_input = gr.Checkbox(value=False, label="符号输入")
                                     symbol_list = gr.Dataset(label="符号列表", components=[input_text],
                                                              samples=[[x] for x in hps_ms.symbols])
@@ -240,8 +238,8 @@ if __name__ == '__main__':
                             lang.change(change_lang, inputs=[lang], outputs=[ns, nsw, ls])
                             symbol_input.change(
                                 to_symbol_fn,
-                                [symbol_input, input_text, temp_text_var, lang],
-                                [input_text, temp_text_var]
+                                [symbol_input, input_text, lang],
+                                [input_text]
                             )
                             symbol_list.click(None, [symbol_list, symbol_list_json], [input_text],
                                               _js=f"""
