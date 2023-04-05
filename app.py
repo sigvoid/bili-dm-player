@@ -113,10 +113,10 @@ if __name__ == '__main__':
     device = torch.device(args.device)
     categories = ["Blue Archive", "Lycoris Recoil"]
     others = {
-        "Princess Connect! Re:Dive": "https://huggingface.co/spaces/sayashi/vits-models",
-        "Genshin Impact": "https://huggingface.co/spaces/sayashi/vits-models",
-        "Honkai Impact 3rd": "https://huggingface.co/spaces/sayashi/vits-models",
-        "Overwatch 2": "https://huggingface.co/spaces/sayashi/vits-models",
+        "Princess Connect! Re:Dive": "https://huggingface.co/spaces/sayashi/vits-models-pcr",
+        "Genshin Impact": "https://huggingface.co/spaces/sayashi/vits-models-genshin-bh3",
+        "Honkai Impact 3rd": "https://huggingface.co/spaces/sayashi/vits-models-genshin-bh3",
+        "Overwatch 2": "https://huggingface.co/spaces/sayashi/vits-models-ow2",
     }
     models = []
     with open("pretrained_models/info.json", "r", encoding="utf-8") as f:
@@ -147,7 +147,7 @@ if __name__ == '__main__':
             "## <center> 请不要生成会对个人以及组织造成侵害的内容\n"
             "![visitor badge](https://visitor-badge.glitch.me/badge?page_id=sayashi.vits-models)\n\n"
             "[![image](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10QOk9NPgoKZUXkIhhuVaZ7SYra1MPMKH?usp=share_link)\n\n"
-            "[![Duplicate this Space](https://huggingface.co/datasets/huggingface/badges/raw/main/duplicate-this-space-sm-dark.svg)](https://huggingface.co/spaces/sayashi/vits-models?duplicate=true)"
+            "[![Duplicate this Space](https://huggingface.co/datasets/huggingface/badges/raw/main/duplicate-this-space-sm-dark.svg)](https://huggingface.co/spaces/sayashi/vits-models?duplicate=true)\n\n"
             "[![Finetune your own model](https://badgen.net/badge/icon/github?icon=github&label=Finetune%20your%20own%20model)](https://github.com/SayaSS/vits-finetuning)"
         )
 
