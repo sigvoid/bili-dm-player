@@ -109,6 +109,7 @@ if __name__ == '__main__':
     parser.add_argument('--device', type=str, default='cpu')
     parser.add_argument('--api', action="store_true", default=False)
     parser.add_argument("--share", action="store_true", default=False, help="share gradio app")
+    parser.add_argument("--all", action="store_true", default=False, help="enable all models")
     args = parser.parse_args()
     device = torch.device(args.device)
     categories = ["Blue Archive", "Lycoris Recoil"]
@@ -118,6 +119,9 @@ if __name__ == '__main__':
         "Honkai Impact 3rd": "https://huggingface.co/spaces/sayashi/vits-models-genshin-bh3",
         "Overwatch 2": "https://huggingface.co/spaces/sayashi/vits-models-ow2",
     }
+    if args.all:
+        categories = ["Blue Archive", "Lycoris Recoil", "Princess Connect! Re:Dive", "Genshin Impact", "Honkai Impact 3rd", "Overwatch 2"]
+        others = {}
     models = []
     with open("pretrained_models/info.json", "r", encoding="utf-8") as f:
         models_info = json.load(f)
