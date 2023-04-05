@@ -198,7 +198,7 @@
 		"type": "multi"
     },
 	"karin": {
-		"enable": true,
+		"enable": false,
 		"name_en": "Kakudate Karin",
 		"name_zh": "角楯花凛",
         "title": "Blue Archive-角楯カリン",
@@ -209,7 +209,7 @@
 		"type": "multi"
     },
 	"asuna": {
-		"enable": true,
+		"enable": false,
 		"name_en": "Ichinose Asuna",
 		"name_zh": "一之濑明日奈",
         "title": "Blue Archive-一之瀬アスナ",
@@ -253,7 +253,7 @@
 		"type": "multi"
     },
 	"hoshino": {
-		"enable": true,
+		"enable": false,
 		"name_en": "Takanasi Hosino",
 		"name_zh": "小鸟游星野",
         "title": "Blue Archive-小鳥遊 ホシノ",
