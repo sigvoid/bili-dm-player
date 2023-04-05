@@ -22,7 +22,7 @@
 		"type": "single"
     },
 	"misora": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Misora",
 		"name_zh": "美空",
         "title": "Princess Connect! Re:Dive-ミソラ",
@@ -33,7 +33,7 @@
 		"type": "single"
     },
 	"kyoka": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Kyoka",
 		"name_zh": "镜华",
         "title": "Princess Connect! Re:Dive-キョウカ",
@@ -44,7 +44,7 @@
 		"type": "multi"
     },
 	"hiyori": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Hiyori",
 		"name_zh": "日和莉",
         "title": "Princess Connect! Re:Dive-ヒヨリ",
@@ -66,7 +66,7 @@
 		"type": "single"
     },
 	"hatsune": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Hatsune",
 		"name_zh": "柏崎初音",
         "title": "Princess Connect! Re:Dive-柏崎初音",
@@ -77,7 +77,7 @@
 		"type": "multi"
     },
 	"eriko": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Eriko",
 		"name_zh": "惠理子",
         "title": "Princess Connect! Re:Dive-倉石恵理子",
@@ -143,7 +143,7 @@
 		"type": "single"
     },
 	"ayaka-jp": {
-		"enable": false,
+		"enable": true,
 		"name_en": "ayaka-jp",
 		"name_zh": "神里绫华-日语",
         "title": "Genshin Impact-神里綾華",
@@ -154,7 +154,7 @@
 		"type": "multi"
     },
 	"nahida-jp": {
-		"enable": false,
+		"enable": true,
 		"name_en": "nahida-jp",
 		"name_zh": "纳西妲-日语",
         "title": "Genshin Impact-ナヒーダ",
@@ -198,7 +198,7 @@
 		"type": "multi"
     },
 	"karin": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Kakudate Karin",
 		"name_zh": "角楯花凛",
         "title": "Blue Archive-角楯カリン",
@@ -209,7 +209,7 @@
 		"type": "multi"
     },
 	"asuna": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Ichinose Asuna",
 		"name_zh": "一之濑明日奈",
         "title": "Blue Archive-一之瀬アスナ",
@@ -253,7 +253,7 @@
 		"type": "multi"
     },
 	"hoshino": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Takanasi Hosino",
 		"name_zh": "小鸟游星野",
         "title": "Blue Archive-小鳥遊 ホシノ",
@@ -308,7 +308,7 @@
 		"type": "multi"
     },
 	"doom": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Doomfist",
 		"name_zh": "末日铁拳",
         "title": "Overwatch 2-Doomfist",
@@ -319,7 +319,7 @@
 		"type": "multi"
     },
 	"echo": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Echo",
 		"name_zh": "回声",
         "title": "Overwatch 2-Echo",
@@ -330,7 +330,7 @@
 		"type": "multi"
     },
 	"zenyatta": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Zenyatta",
 		"name_zh": "禅雅塔",
         "title": "Overwatch 2-Zenyatta",
@@ -341,10 +341,10 @@
 		"type": "multi"
     },
 	"abyssinvoker": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Abyss Invoker",
 		"name_zh": "深渊使徒",
-        "title": "原神-深渊使徒",
+        "title": "Genshin Impact-深渊使徒",
         "cover": "cover.png",
 		"sid": 94,
 		"example": "今天晚上吃啥好呢",
@@ -352,10 +352,10 @@
 		"type": "multi"
     },
 	"keqing": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Keqing",
 		"name_zh": "刻晴",
-        "title": "原神-刻晴",
+        "title": "Genshin Impact-刻晴",
         "cover": "cover.png",
 		"sid": 115,
 		"example": "今天晚上吃啥好呢",
@@ -363,10 +363,10 @@
 		"type": "multi"
     },
 	"eula": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Eula",
 		"name_zh": "优菈",
-        "title": "原神-优菈",
+        "title": "Genshin Impact-优菈",
         "cover": "cover.png",
 		"sid": 124,
 		"example": "今天晚上吃啥好呢",
@@ -374,10 +374,10 @@
 		"type": "multi"
     },
 	"bronya": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Herrscher of Reason",
 		"name_zh": "理之律者",
-        "title": "崩坏3-理之律者",
+        "title": "Honkai Impact 3rd-理之律者",
         "cover": "cover.png",
 		"sid": 193,
 		"example": "今天晚上吃啥好呢",
@@ -385,10 +385,10 @@
 		"type": "multi"
     },
 	"theresa": {
-		"enable": false,
+		"enable": true,
 		"name_en": "Theresa",
 		"name_zh": "德丽莎",
-        "title": "崩坏3-德丽莎",
+        "title": "Honkai Impact 3rd-德丽莎",
         "cover": "cover.png",
 		"sid": 193,
 		"example": "今天晚上吃啥好呢",
