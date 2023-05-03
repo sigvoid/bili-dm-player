@@ -11,7 +11,7 @@
 		"type": "multi"
     },
 	"herta": {
-		"enable": false,
+		"enable": true,
 		"name_en": "herta",
 		"name_zh": "黑塔",
         "title": "Honkai: Star Rail-ヘルタ",
