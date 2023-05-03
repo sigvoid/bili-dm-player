@@ -148,8 +148,7 @@ if __name__ == '__main__':
         gr.Markdown(
             "# <center> vits-models\n"
             "## <center> Please do not generate content that could infringe upon the rights or cause harm to individuals or organizations.\n"
-            "## <center> 请不要生成会对个人以及组织造成侵害的内容\n"
-            "![visitor badge](https://visitor-badge.glitch.me/badge?page_id=sayashi.vits-models)\n\n"
+            "## <center> 请不要生成会对个人以及组织造成侵害的内容\n\n"
             "[![image](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10QOk9NPgoKZUXkIhhuVaZ7SYra1MPMKH?usp=share_link)\n\n"
             "[![Duplicate this Space](https://huggingface.co/datasets/huggingface/badges/raw/main/duplicate-this-space-sm-dark.svg)](https://huggingface.co/spaces/sayashi/vits-models?duplicate=true)\n\n"
             "[![Finetune your own model](https://badgen.net/badge/icon/github?icon=github&label=Finetune%20your%20own%20model)](https://github.com/SayaSS/vits-finetuning)"
